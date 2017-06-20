@@ -1,9 +1,10 @@
 {
   "name": "filesort",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "open source file sort",
   "main": "app.js",
   "dependencies": {
+    "fs-extra": "^3.0.1",
     "prompt": "^1.0.0"
   },
   "devDependencies": {},
