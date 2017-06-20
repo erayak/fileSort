@@ -8,9 +8,9 @@ const fs = require('fs');
 // 
 fs.readdir("AddSortedFiles", (ex, files) => {
  
-    if ( !ex ) 
+    if ( !ex )
 	{
-		for( var i in files )
+		for( var i = 1; i < files.length; i++ )
 		{
 			console.log("File => " + files[i] + " New Name => " + i );
 			
@@ -19,7 +19,7 @@ fs.readdir("AddSortedFiles", (ex, files) => {
 					console.log('ERROR: ' + err);
 			});
 		}
-    } 
+    }
 	else
 		console.log(ex);
 
