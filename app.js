@@ -39,6 +39,48 @@ prompt.get(['number'], (err, result) => {
 
 							console.log(" SUCCESSFUL => In the outputs file ");
 
+							console.log("Delete the contents of the AddSortedFiles folder ( yes/no )");
+
+							prompt.get(['delete'], (err, result) => {
+
+								if( !ex )
+								{
+
+									if( result.delete === 'yes' )
+									{
+
+										fs.readdir('AddSortedFiles',( ex, files )=>{
+
+											if( !ex )
+											{
+
+												for(var i = 1; i < files.length; i++ )
+												{
+
+													fs.unlink(`AddSortedFiles/${files[i]}`, (err) => {
+														if ( err )
+															console.log('ERROR: ' + err);													
+													});
+
+												}
+
+												console.log("SUCCESSFUL = Good By");
+
+											}
+											else
+												console.log(ex);
+
+										});
+
+									}
+									else
+										console.log("Good By");
+								}
+								else
+									console.log(ex);
+
+							});
+
 						}
 						else
 							console.log(ex);
